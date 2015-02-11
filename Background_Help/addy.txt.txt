@@ -1,0 +1,6 @@
+http://sourceforge.net/projects/sevenzip/forums/forum/45798/topic/3188804
+
+
+for emtyp folder check
+
+http://www.windowsitpro.com/article/tips/jsi-tip-6415-how-can-a-batch-script-test-if-a-folder-is-empty-or-contains-folders-files-or-both-folders-and-files-.aspx

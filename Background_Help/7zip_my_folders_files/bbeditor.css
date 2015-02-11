@@ -1,0 +1,16 @@
+.bbeditor {
+  width: 75% !important;
+}
+.bbebar {
+  height: 32px;
+}
+.bbebar img {
+  margin-top: 4px;
+  padding: 4px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #bbb;
+}
+.bbebar a {
+  margin-right: 8px;
+}

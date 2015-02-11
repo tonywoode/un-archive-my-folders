@@ -1,0 +1,39 @@
+Hi butter100fly, great work you have done here.
+
+I've worked a lot in the usage of Pismo File Mount to mount generic ZIP files. And with the recent adition of PS2 games to UG, I've concluded that mount time makes it unusable (more than a minute on +4Gb games).
+
+I've then played with Poweriso, but it only supports ISO files, not CUE/BIN, etc.
+
+So at the end, I have reached the same point than you all: using Winmount (BTW web page seems to have dissapeared).
+
+I'm testing MOU files with the PS2 games inside, and mounting it via Daemon Tools, and so long it mounts them instantly. I'll write about it once I have clear results.
+
+Whay I wanted to note, is that the script "Convert_zip_rar_7z_to_MOU.cmd" is failing on my system (Win7 x64) as it detects all 7zip files as directories.
+
+I've found a quick and dirty workaround, changing the line:
+
+if exist %1\ goto ITSAFOLDER
+
+
+with this one
+
+if exist %1\*.* goto ITSAFOLDER
+
+
+Of course now it doesn't detect an empty folder, but in any other case it works. I only wanted you to know it.
+
+Edited by mgtroyas, 23 January 2012 - 08:03 PM. 
+
+________________________--
+
+Well, apologies for my late reply, but I did just test this
+
+This works 100% for me, but I suspect the problem could be this:
+I am doing all these operations on local drives. You have said you use network drives a lot, so I assume you're doing this to files on your NAS - I don't know what filesystem that might be
+Have a look HERE at this old thing http://support.microsoft.com/kb/65994- could this be related?
+I had a look here: http://stackoverflow.com/questions/138981/how-do-i-test-if-a-file-is-a-directory-in-a-batch-script
+and one suggestions is to change to something like what you suggest:
+[CODE]if exist %1\.[/CODE] to check for the existence of a child
+(I'm also on win7 64bit btw). This should really detect empty folders I think: an empty folder still has child "."
+but if I change my script and do that then I get YOUR problem: all 7z's are treated as folders. I thought this may be because my %PATH% variable  contains winmount (then other peoples path variables may contain similar too). But that doesn't really make sense: I don't think that IF EXIST would call anything other than explorer and if I run IF EXIST %A_7z_File%.7z\. just from command line I get "File not Found"
+So until we can work this out I'd suggest changing that line from one to the other depending on what works for you....

@@ -1,0 +1,14 @@
+﻿/* Styles for use in displaying a Roadblock advertisement */
+
+p.close { text-transform: uppercase; background: #444; color: white; margin: 0; padding: 5px 12px; font: 12px arial; text-align: left; }
+p.close a { font-weight: bold; color: white; }
+p.close a.xButton { border: 1px outset white; width: 1em; font-family: verdana; text-align: center; padding: 0 2px; }
+p.close a.xButton:hover { text-decoration: none; }
+p.close a.xButton:active { border-style: inset; }
+#showCount { text-transform: none; position: absolute; top: 5px; right: 5px; }
+.introstitialAd { width: 640px; margin: 100px auto 0; text-align: left; padding: 0; }
+
+.roadblock
+{
+	position: relative; top: 0; z-index: 3; margin: 0 auto; padding: 0; height: 700px; text-align: center; 
+}

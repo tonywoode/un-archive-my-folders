@@ -1,0 +1,1 @@
+document.write('<a target="_new" href="http://ad.doubleclick.net/click;h=v8/39a7/0/0/%2a/d;225031696;0-0;0;26677133;4252-336/280;36367162/36385042/1;;~sscs=%3fhttps://www.diskeeper.com/landing/DPAN2.aspx?APID=PPS0005550"><img src="http://s0.2mdn.net/viewad/2007027/1-dpan_winitpro1_336x280.jpg" border=0 alt="Click here to find out more!"></a>');

@@ -1,0 +1,221 @@
+::@echo off
+
+echo.7zip_my_folders_check_and_delete.cmd
+
+
+::	This script will convert a zip archive to a 7zip one
+::	It does that by unarchiving the source, making a new 7z, checking it, then deleting the source zip
+::	Its intended to be put in a directory and a shortcut be made in Windows SendTo folder
+::	This is intended to be used in a static folder - no files which could be updated while the script is running
+::	Mtee.exe needs to downloaded and put in the script directory http://commandline.co.uk/mtee/index.html 
+
+::	get the script directory for mtee and folder dir - if we don't do this now shift will lose it. Set directory to folders dir
+::	the ~dp0 is explained at http://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/percent.mspx?mfr=true
+
+set scriptdir=%~dp0
+set folderdir=%~dp1
+cd /d %~dp1
+set log="%folderdir%CONVERT_MY_FOLDERS_%RANDOM%.log"
+if exist %log% echo.Log file %log% ERROR already exists, contents will go to end of file | "%scriptdir%/mtee.exe" /+ %log%
+echo.LOGFILE is %log%
+
+::	first we setup a loop, so we process each command line parameter in turn, and goto done when there are no more files to process
+
+:LOOP
+
+if (%1)==() goto END
+
+
+::	get filename name without quotes, Set a short filename for the error log - filename with extension
+set ziptemp=%1
+set ziptemp2=%ziptemp:~0,-4%
+set zipfile=%ziptemp2%"
+set zipexttemp=%ziptemp:~-5%
+set zipext=%zipexttemp:~0,-1%
+set 7ziptemp=
+echo.%zipext%
+pause
+#set zipfile="%~dpn1"
+set shortzip="%~nx1"
+echo.____________________________________________
+echo.____________________________________________
+
+
+:: check for folder, existing file, and file is a folder
+if (%)==(.7z) goto 7ZIPALREADY
+if exist %1\ goto ITSAFOLDER
+if not (%~x1)==(.zip) goto NOTAZIP
+if exist %zipfile%.7z goto 7ZEXISTS
+if (%~x1)==(.zip) goto TESTZIP
+GOTO fail
+
+:FINE
+:: make a temp folder directory. Use shortname incase zip name is long
+SET tempdir="%~dpns1\"
+If exist %tempdir%\ goto CREATEERROR
+
+:: 7zip uncompresses image files and names its folder in rom dir after archive file 
+"C:\Program Files\7-Zip\7z.exe" e %1 -o%tempdir%
+set error=%errorlevel%
+if %error% NEQ 0 goto CREATEERROR
+
+
+::	then have 7zip make archive of the folder name, and add all /* files in the folder to it. This prevents 'folder in zip' syndrome 
+::	7zip didn't like .\ at the begginning of the latter. Removing it made this work
+
+"C:\Program Files\7-Zip\7z.exe" a %zipfile%.7z -r %tempdir%\* 2<&1
+
+::	Check that the archiving went ok. Otherwise report
+
+set error=%errorlevel%
+if %error% NEQ 0 goto CREATEERROR
+
+
+:: 	Now test archive - note I've specified recursive testing of folders inside the archive,
+::	and output error and stdout to log -don't think either make any difference
+
+echo.Datestamp is %date%, %time% ^& Current directory is %cd% >> %log%
+echo.Made 7Z Archive %shortzip%.7z now testing archive... | "%scriptdir%/mtee.exe" /+ %log%
+"C:\Program Files\7-Zip\7z.exe" t -r %zipfile%.7z >>%log% 2>&1
+set error=%errorlevel%
+if %error% EQU 0 echo.%shortzip%.7z CREATED AND TESTED - all OK | "%scriptdir%/mtee.exe" /+ %log%
+if %error% NEQ 0 goto TESTERROR
+
+echo.>>%log%
+echo.>>%log%
+echo.ARCHIVE 7ZIP CHECKS OK - DELETING SOURCE ZIP | "%scriptdir%/mtee.exe" /+ %log%
+del %1 2>&1
+set error=%errorlevel%
+if %error% EQU 0 echo.%shortzip% DELETED from %folderdir% AS 7z TESTED OK | "%scriptdir%/mtee.exe" /+ %log%
+if %error% NEQ 0 echo.ERROR removing zip %shortzip% from %folderdir% | "%scriptdir%/mtee.exe" /+ %log%
+
+echo.DELETING TEMP FOLDER | "%scriptdir%/mtee.exe" /+ %log%
+rd /s /q %tempdir% 2>&1
+set error=%errorlevel%
+if %error% EQU 0 echo.temp folder %tempdir% DELETED from %folderdir% AS 7z TESTED OK | "%scriptdir%/mtee.exe" /+ %log%
+if %error% NEQ 0 echo.ERROR removing temp folder %tempdir% from %folderdir% | "%scriptdir%/mtee.exe" /+ %log%
+
+
+
+:CONTINUE
+echo.____________________________________________>>%log%
+echo.____________________________________________>>%log%
+
+::	then we shift the command line parameters up one, and loop back to the start
+::	http://stackoverflow.com/questions/935609/batch-parameters-everything-after-1
+
+shift
+goto LOOP
+
+:NOTAZIP
+echo.Datestamp is %date%, %time% ^& Current directory is %cd% >> %log%
+echo.%shortzip% is not a zip file or doesn't exist | "%scriptdir%/mtee.exe" /+ %log%
+echo.%shortfolder% ------------------ERROR not a zip or doesn't exist | "%scriptdir%/mtee.exe" /+ %log%
+::	also check whether a 7zip exists already with the empty folders name
+if exist %shortzip%.7z echo.7zip also already exists for not a zip file %shortzip%  | "%scriptdir%/mtee.exe" /+ %log%
+if exist %shortzip%.7z goto 7ZEXISTS
+goto CONTINUE
+
+
+:7ZEXISTS
+echo.Datestamp is %date%, %time% ^& Current directory is %cd% >> %log%
+echo.%shortzip%.7z already exists - checking... | "%scriptdir%/mtee.exe" /+ %log%
+"C:\Program Files\7-Zip\7z.exe" t %zipfile%.7z >>%log% 2>&1
+set error=%errorlevel%
+if %error% EQU 0 echo.%shortzip%.7z ALREADY EXISTS and appears valid ERROR code is %error% | "%scriptdir%/mtee.exe" /+ %log%
+if %error% NEQ 0 echo.%shortzip%.7z ALREADY EXISTS and APPEARS CORRUPT ERROR code is %error% | "%scriptdir%/mtee.exe" /+ %log%
+goto CONTINUE
+
+
+:ITSAFOLDER
+echo.Datestamp is %date%, %time% ^& Current directory is %cd% >> %log%
+echo.%shortzip% is a folder, not processing | "%scriptdir%/mtee.exe" /+ %log%
+echo.%shortzip% ERROR as its a folder | "%scriptdir%/mtee.exe" /+ %log%
+goto CONTINUE
+
+:7ZIPALREADY
+echo.Datestamp is %date%, %time% ^& Current directory is %cd% >> %log%
+echo.%shortzip% is a 7zip file already - checking... | "%scriptdir%/mtee.exe" /+ %log%
+"C:\Program Files\7-Zip\7z.exe" t %1 >>%log% 2>&1
+set error=%errorlevel%
+if %error% EQU 0 echo.%shortzip% is ALREADY a 7Zip and appears ok ERROR code is %error% | "%scriptdir%/mtee.exe" /+ %log%
+if %error% NEQ 0 echo.%shortzip% is ALREADY a 7Zip and APPEARS CORRUPT ERROR code is %error% | "%scriptdir%/mtee.exe" /+ %log%
+:: also check it isn't a 1kb file
+if %~z1 LEQ 32 echo.%shortzip% ADDITIONAL ERROR - LESS THAN 1KB IN SIZE  | "%scriptdir%/mtee.exe" /+ %log%
+goto CONTINUE
+
+:TESTZIP
+echo.Datestamp is %date%, %time% ^& Current directory is %cd% >> %log%
+echo.%shortzip% is a Zip file - checking... | "%scriptdir%/mtee.exe" /+ %log%
+:: also check it isn't a 1kb file
+if %~z1 LEQ 32 echo.%shortfolder% ADDITIONAL ERROR - LESS THAN 1KB IN SIZE  | "%scriptdir%/mtee.exe" /+ %log%
+"C:\Program Files\7-Zip\7z.exe" t %1 >>%log% 2>&1
+set error=%errorlevel%
+if %error% EQU 0 echo.%shortzip% is a Zip File and appears ok ERROR code is %error% | "%scriptdir%/mtee.exe" /+ %log%
+if %error% NEQ 0 goto ZIPERROR
+goto FINE
+:ZIPERROR
+echo.%shortzip% is a Zip File but APPEARS CORRUPT ERROR code is %error% :not processing | "%scriptdir%/mtee.exe" /+ %log%
+goto CONTINUE
+
+:CREATEERROR
+echo.Datestamp is %date%, %time% ^& Current directory is %cd% >> %log%
+echo.Couldn't create the temp folder or the 7zip for %shortzip%, or %tempdir% already exists so I don't want to mess with it | "%scriptdir%/mtee.exe" /+ %log%
+echo.%shortzip%.7z ARCHIVE CREATE ERROR code is %error% | "%scriptdir%/mtee.exe" /+ %log%
+goto CONTINUE
+
+:TESTERROR
+echo.Datestamp is %date%, %time% ^& Current directory is %cd% >> %log%
+echo.Archive test on %shortzip% failed
+echo.%shortzip%.7z was just created but ARCHIVE TEST ERROR code is %error% | "%scriptdir%/mtee.exe" /+ %log%
+goto CONTINUE
+
+:FAIL
+echo.Datestamp is %date%, %time% ^& Current directory is %cd% >> %log%
+echo.%shortzip% - I don't know what type of file this is, its not a zip
+echo.%shortzip% ERROR - couldn't determine what this file is | "%scriptdir%/mtee.exe" /+ %log%
+goto CONTINUE
+
+:END
+echo.| "%scriptdir%/mtee.exe" /+ %log%
+echo.| "%scriptdir%/mtee.exe" /+ %log%
+echo.FINISHED - REPORTED PROBLEMS IN LOG ARE THESE:| "%scriptdir%/mtee.exe" /+ %log%
+echo.(PRESS SPACE FOR NEXT PAGE)
+echo.| "%scriptdir%/mtee.exe" /+ %log%
+echo.| "%scriptdir%/mtee.exe" /+ %log%
+find "ERROR"<%log% | "%scriptdir%/mtee.exe" /+ %log% |more
+echo.| "%scriptdir%/mtee.exe" /+ %log%
+echo.| "%scriptdir%/mtee.exe" /+ %log%
+echo.REMOVED STUFF ARE THESE:| "%scriptdir%/mtee.exe" /+ %log%
+echo.(PRESS SPACE FOR NEXT PAGE)
+echo.| "%scriptdir%/mtee.exe" /+ %log%
+echo.| "%scriptdir%/mtee.exe" /+ %log%
+find "DELETED"<%log% | "%scriptdir%/mtee.exe" /+ %log% |more
+echo.
+
+::	clear up
+FOR %%V IN (scriptdir folderdir folder tempdir shortfolder error log) DO SET %%V=
+
+(ECHO. 	------END------press any key to quit) & pause>nul
+
+::	to do: what happens if its a folder with just an empty folder or file in it. What happens if 7z is created but its 1kb
+
+
+
+::	Heres a list of error codes for 7zip from 2008. Note the commenting out.
+::	from http://sourceforge.net/projects/sevenzip/forums/forum/45797/topic/2670878
+::
+::	kSuccess = 0, // Successful operation
+::	kWarning = 1, // Non fatal error(s) occurred
+::	kFatalError = 2, // A fatal error occurred
+::	// kCRCError = 3, // A CRC error occurred when unpacking
+::	// kLockedArchive = 4, // Attempt to modify an archive previously locked
+::	// kWriteError = 5, // Write to disk error
+::	// kOpenError = 6, // Open file error
+::	kUserError = 7, // Command line option error
+::	kMemoryError = 8, // Not enough memory for operation
+::	// kCreateFileError = 9, // Create file error
+::
+::	kUserBreak = 255 // User stopped the process
+::
+::	(From latest source, note that several codes are commented out) 

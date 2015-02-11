@@ -1,0 +1,31 @@
+ 
+/* Basic code - don't modify */
+ 
+ .droppy { display: block; margin: 0; padding: 0; position: relative; }
+  .droppy li { display: block; list-style: none; margin: 0; padding: 0; float: left; position: relative; }
+  .droppy a { display: block; }
+  .droppy ul { display: none; position: absolute; left: 0; margin: 0; padding: 0; }
+  * html .droppy ul { line-height: 0; } /* IE6 "fix" */
+  	.droppy ul a { zoom: 1; } /* IE6/7 fix */
+    .droppy ul li { float: none; }
+    .droppy ul ul { top: 0; }
+    
+/* Essentials - configure this */
+
+.droppy ul { width: 14em; font-weight: normal; }
+.droppy ul ul { left: 14em; }
+
+/* Everything else is theming */
+ 
+.droppy a { padding: .5em .7em; }
+.droppy > li > a { border-bottom: 1px solid #fff; border-top: 1px solid #fff; position: relative; }
+.droppy > li.subnav.hover { z-index: 8999; }
+.droppy > li.subnav.hover > a { border-top: 1px solid #D2D2D2; background-color: #fff; z-index: 9999; }
+.droppy > li.subnav.selected.hover > a { border-top: none; }
+.droppy ul { padding: 0 1em; margin-top: -1px; border: 1px solid #D2D2D2; background-color: #fff; }
+.droppy ul li a { padding: .5em 0; _padding: 1em; border-top: 1px dotted #d2d2d2; }
+.droppy ul li a { _margin: -.5em 0 0 0; }
+.droppy ul li.first a { border-top: none; }
+.droppy li.hover a { text-decoration: none; }
+.droppy ul li a.hover {text-decoration: underline;}
+/* .droppy ul a { border-bottom: none; } - I also needed this for IE6/7 */

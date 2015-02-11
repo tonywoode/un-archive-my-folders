@@ -1,0 +1,135 @@
+﻿/* <RadMenu / Blue> */
+/* RESETS */
+.Navbar li { margin: 0 !important; padding: 0 !important; }
+
+.RadMenu_Blue .rmRootGroup, .RadMenu_Blue .rmLink, .RadMenu_Blue .rmText, .RadMenu_Blue .rmLeftArrow, .RadMenu_Blue .rmRightArrow, .RadMenu_Blue .rmTopArrow, .RadMenu_Blue .rmBottomArrow { cursor: pointer; }
+.RadMenu_Blue .rmRootGroup { }
+.RadMenu_Blue .rmHorizontal { width: 980px; }
+.RadMenu_Blue .rmVertical { }
+
+/* <Root items> */
+.RadMenu_Blue, .RadMenu_Blue .rmLink, .RadMenu .rmLink {
+color: #143C5C;
+padding: 0; margin: 4px -5px 0 0;
+font-family: Arial, Helvetica, Sans-Serif;
+font-size: 12px;
+text-transform: capitalize;
+text-decoration: none;
+}
+.RadMenu_Blue .rmLink, .RadMenu_Blue .rmLink .rmText {
+color: #143C5C;
+}
+ul li a span.rmText {
+border-right: 1px dotted #000;
+}
+ul.rmVertical li a span.rmText {
+border-right: none;
+margin: 0; padding: 3px 15px 3px 5px !important;
+min-width: 100px;
+}
+.RadMenu_Blue .rmLink:hover, .RadMenu_Blue .rmFocused, .RadMenu_Blue .rmSelected, .RadMenu_Blue .rmExpanded,  .RadMenu_Blue .rmExpanded:hover {
+color: #003C5C;
+}
+.RadMenu_Blue .rmVertical .rmLink {
+padding-top: 1px;
+padding-bottom: 0;
+}
+.RadMenu_Blue .rmVertical .rmLink:hover, .RadMenu_Blue .rmVertical .rmFocused, .RadMenu_Blue .rmVertical .rmSelected, .RadMenu_Blue .rmVertical .rmExpanded, .RadMenu_Blue .rmVertical .rmExpanded:hover {
+padding-top: 0;
+padding-bottom: 0;
+border-style: solid;
+border-color: #3f5f94;
+border-width: 1px 0;
+}
+.RadMenu_Blue .rmVertical .rmLink:hover, .RadMenu_Blue .rmVertical .rmFocused, .RadMenu_Blue .rmVertical .rmSelected, .RadMenu_Blue .rmVertical .rmExpanded, .RadMenu_Blue .rmVertical .rmExpanded:hover, .RadMenu_Blue .rmVertical .rmLink:hover .rmText, .RadMenu_Blue .rmVertical .rmFocused .rmText,  .RadMenu_Blue .rmVertical .rmSelected .rmText, .RadMenu_Blue .rmVertical .rmExpanded .rmText, .RadMenu_Blue .rmVertical .rmExpanded:hover .rmText {
+background-position: 0;
+}
+.RadMenu_Blue .rmVertical .rmFirst .rmLink:hover, .RadMenu_Blue .rmVertical .rmFirst .rmFocused, .RadMenu_Blue .rmVertical .rmFirst .rmSelected, .RadMenu_Blue .rmVertical .rmFirst .rmExpanded, .RadMenu_Blue .rmVertical .rmFirst .rmExpanded:hover {
+padding-top: 1px;
+padding-bottom: 0;
+border-top-width: 0;
+}
+.RadMenu_Blue .rmVertical .rmLast .rmLink:hover, .RadMenu_Blue .rmVertical .rmLast .rmFocused, .RadMenu_Blue .rmVertical .rmLast .rmSelected, .RadMenu_Blue .rmVertical .rmLast .rmExpanded, .RadMenu_Blue .rmVertical .rmLast .rmExpanded:hover {
+padding-bottom: 1px;
+padding-top: 0;
+border-bottom-width: 0;
+}
+.RadMenu_Blue .rmVertical .rmItem .rmDisabled:hover {
+padding-top: 1px;
+padding-bottom: 1px;
+border-width: 0;
+}
+.RadMenu_Blue .rmDisabled, .RadMenu_Blue .rmDisabled:hover {
+color: #bdcae3;
+}
+
+/* <Submenu items> */
+.RadMenu_Blue .rmGroup, .RadMenu_Blue .rmMultiColumn, .RadMenu_Blue .rmGroup .rmVertical {
+border-left: solid 1px #b0cadd;
+border-right: solid 1px #b0cadd;
+background: #D3E2ED;
+margin: 0; padding: 0;
+}
+.RadMenu_Blue .rmGroup .rmLink {
+margin: 0; padding: 0;
+color: #000;
+border-bottom: solid 1px #b0cadd;
+}
+.RadMenu_Blue .rmSlide {
+margin: 6px 0;
+}
+.RadMenu_Blue_rtl .rmGroup, .RadMenu_Blue_rtl .rmMultiColumn, .RadMenu_Blue_rtl .rmGroup .rmVertical {
+margin: 0; padding: 0;
+}
+.RadMenu_Blue .rmScrollWrap .rmVertical {
+border: 0;
+}
+.RadMenu_Blue .rmGroup .rmLink:hover, .RadMenu_Blue .rmGroup .rmItem .rmFocused, .RadMenu_Blue .rmGroup .rmItem .rmSelected, .RadMenu_Blue .rmGroup .rmItem .rmExpanded {
+background: #E1F1FC;
+color: #0f3789;
+}
+.RadMenu_Blue .rmGroup .rmDisabled, .RadMenu_Blue .rmGroup .rmDisabled:hover {
+color: #8a8a8a;
+}
+.RadMenu_Blue .rmGroup .rmItem .rmLink, .RadMenu_Blue .rmGroup .rmItem .rmLink:hover, .RadMenu_Blue .rmGroup .rmItem .rmFocused, .RadMenu_Blue .rmGroup .rmItem .rmSelected, .RadMenu_Blue .rmGroup .rmItem .rmExpanded {
+padding-top: 0;
+padding-bottom: 0;
+border: 0;
+}
+
+/* <Submenu offsets (Web20 - specific, overlapping submenus)> */
+.RadMenu_Blue .rmFirst .rmSlide {
+margin: 0 0 0 -1px;
+}
+.RadMenu_Blue .rmVertical .rmSlide, .RadMenu_Blue .rmSlide .rmSlide, .RadMenu_Blue_Context .rmGroup .rmSlide {
+margin: 0 0 0 -5px;
+}
+.RadMenu_Blue_rtl .rmSlide {
+margin: 0 0 0 0;
+}
+.RadMenu_Blue_rtl .rmFirst .rmSlide {
+margin-left: 1px;
+}
+.RadMenu_Blue_rtl .rmVertical .rmSlide, .RadMenu_Blue_rtl .rmSlide .rmSlide, .RadMenu_Blue_Context_rtl .rmGroup .rmSlide {
+margin: 0 0 0 5px;
+}
+
+/* </Submenu offsets> */
+.RadMenu_Blue .rmLeftArrow, .RadMenu_Blue .rmRightArrow {
+background-color: #ECF4FF;
+}
+.RadMenu_Blue .rmLeftArrow { background-position: -8px -312px; border-right: 1px solid #828282; }
+.RadMenu_Blue .rmRightArrow { background-position: -482px -216px; border-left: 1px solid #828282; }
+.RadMenu_Blue .rmTopArrow, .RadMenu_Blue .rmBottomArrow, .RadMenu_Blue .rmGroup .rmLeftArrow, .RadMenu_Blue .rmGroup .rmRightArrow {
+background-color: #ECF4FF;
+}
+.RadMenu_Blue .rmTopArrow { background-position: 50% -367px; border-bottom: 1px solid #828282; }
+.RadMenu_Blue .rmBottomArrow { background-position: 50% -391px; border-top: 1px solid #828282; }
+.RadMenu_Blue .rmHorizontal .rmSeparator .rmText, .RadMenu_Blue .rmVertical .rmHorizontal .rmSeparator .rmText {
+height: 22px;
+margin: 1px 0 0;
+width: 1px;
+}
+.RadMenu .rmRootGroup .rmItem .rmGroup {
+padding-bottom:0 !important;
+}

@@ -1,0 +1,190 @@
+/* Container CSS Document For Windows IT Pro */
+
+.underlined {
+	border-bottom: solid 1px #ccc;
+	margin: 0 0 5px 0;
+}
+.grey, .grey .Head {
+	color: #333;
+}
+.greybar {
+	background-color: #acaca4;
+	padding: 5px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+}
+.greybar .Head  {
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* --- QUICK POLL CONTAINER --- */
+div.inThisIssueContainer, div.newsletterContainer, div.pollContainer {
+	border: 1px solid #C5C5C1;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+div.inThisIssueContainer h3, div.newsletterContainer h3, div.pollContainer h3 {
+	padding-left: 35px;
+	height: 21px;
+	line-height: 21px;
+	margin-bottom: 0;
+}
+div.pollContainer h3 {
+	background: url(_images/iconPoll.gif) no-repeat left top;
+}
+div.newsletterContainer h3 {
+	background: url(_images/iconNewsletter.gif) no-repeat left top;
+}
+div.inThisIssueContainer h3 .Head, div.newsletterContainer h3 .Head, div.pollContainer h3 .Head {
+	height: 21px;
+	line-height: 21px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #333333;
+}
+
+/* --- HOUSE MENU STYLE --- */
+div.houseMenuWrap {
+	border-bottom: 3px solid #8EB801;
+	margin: 0 0 20px 0 !important;
+}
+div.houseMenuWrap h3 {
+	padding: 3px;
+	background: #8EB801;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: #FFFFFF;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 0;
+}
+div.houseMenuWrap h3 .head, div.houseMenuWrap h3 .Head {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: #FFFFFF;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+/* --- SPONSORED ANNOUNCEMENT --- */
+div.sponsoredAnnouncementWrap {
+	border: 1px solid #CCCCCC;
+	background: #FFFFFFF;
+	padding: 3px;
+	margin-bottom: 10px;
+}
+div.sponsoredAnnouncementWrap div.sponsoredAnnouncementContent {
+	background: url(_images/sponsoredLinkBg.gif) repeat-x #FFFFFF;
+}
+div.sponsoredAnnouncementWrap div.sponsoredAnnouncementContent h3 {
+	border-bottom: 1px dotted #CCCCCC;
+	padding: 3px 1px;
+	margin:0 3px;
+}
+div.sponsoredAnnouncementWrap div.sponsoredAnnouncementContent h3 .Head {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #333333;
+	text-transform: uppercase;
+}
+div.sponsoredAnnouncementWrap div.sponsoredAnnouncementContent h2 {
+	text-transform: none;
+	font-size: 14px;
+	font-weight: bold;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #2D6A98;
+	margin: 5px;
+}
+div.sponsoredAnnouncementWrap div.sponsoredAnnouncementContent p {
+	margin: 5px;
+}
+
+/* --- COMMUNITY FORUMS CONTAINER --- */
+div.communityForumsWrap {
+	border: 6px solid #b0b0a8;
+	background: #FFFFFF;
+	margin-bottom: 10px;
+	}
+div.communityForumsWrap h2 a {
+	font-size: 16px;
+	font-weight: normal;
+	text-transform: none;
+	color: #2d6a98;
+	}
+div.communityForumsWrap ul li {
+	list-style-type: none;
+	}	
+div.communityForumsWrap ul p {
+	line-height: 1.2;
+	}
+div.communityForumsWrap div.communityForumsContent {
+	background: #FFFFFF;
+	margin: 0 1px 0 3px;
+	padding: 5px;
+	}
+div.communityForumsWrap div.communityForumsContent h4 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	color: #000;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+	}
+div.communityForumsWrap div.communityForumsContent a{
+	color: #2d6a98;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	}
+
+/* --- GREY BORDER CONTAINER --- */
+div.greyBorderWrap div.greyBorderContent {
+	border: 1px solid #CCCCCC;
+	background: #FFFFFFF;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+div.greyBorderWrap h3 {
+	margin-bottom: 5px;
+}
+div.greyBorderWrap h3 .Head {
+	color:#333333;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+/* --- ADVERTISEMENT CONTAINERS --- */
+h3.advertisement {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #CCCCCC;
+	text-align: right;
+	text-transform: lowercase;
+	margin-bottom: 2px;
+}
+h3.advertisement .Head {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #CCCCCC;
+	text-align: right;
+	text-transform: lowercase;
+}
+div.advertisementWrap {
+	margin-bottom:10px;
+}
+
+/* --- IN THIS ISSUE CONTAINER --- */
+div.inThisIssueContainer h3 { 
+	background: url(_images/iconInThisIssue.gif) no-repeat left top;
+}

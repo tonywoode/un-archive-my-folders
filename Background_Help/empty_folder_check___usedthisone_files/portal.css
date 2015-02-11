@@ -1,0 +1,130 @@
+h1#articleTitle {
+margin: 0; padding: 0 0 5px 0;
+font-family:Georgia, "Times New Roman", Times, serif;
+color: #333;
+font-size: 20px;
+font-weight: normal;
+}
+h4, h4 .Head {
+color: #256493;
+font-family:Georgia, "Times New Roman", Times, serif;
+font-size: 14px;
+margin: 0;
+padding: 0 0 3px 0;
+}
+#topArticles {
+margin:20px 0pt 0pt;
+width:100%;
+}
+.CommunityTitleBar {
+background:#E1E1E1 none repeat scroll 0% 0%;
+border:1px solid #A9A9A9;
+color:#555555;
+display:block;
+font-size:11px;
+font-weight:bold;
+height:18px;
+margin:0pt 0pt 8px;
+padding:2px 0pt 0pt 6px;
+text-align:left;
+} 
+.Article a {
+color:#4D749B;
+font-weight:bold;
+text-align:left;
+text-decoration:underline;
+}
+.topArticles {
+font-size:9px;
+margin:0pt 0pt 5px;
+text-align:left;
+}
+.head18 {
+color:#000000;
+font-size:18px;
+}
+.ltblue {
+color:#3F83E0;
+}
+.kicker2 {
+color:#666666;
+font-size:11px;
+letter-spacing:2px;
+text-decoration:none;
+}
+.head14 {
+color:#000000;
+font-size:14px;
+font-weight:bold;
+}
+.Publication {
+color:#990000;
+font-weight:bold;
+text-decoration:none;
+}
+a.author:link, a.author:visited, a.author:hover, a.author:active {
+color:#3675a2;
+font-weight: bold;
+text-decoration:none;
+}
+a.author:hover {
+text-decoration: underline;
+}
+.optionsBox {
+background-color:#DDDEE0;
+background-position:2% center;
+background-repeat:no-repeat;
+border:1px solid #555555;
+color:#7E8285;
+font-weight:bold;
+margin:1px 0pt;
+padding:0pt 0pt 0pt 4px;
+text-align:center;
+width:150px;
+}
+.rssBox {
+background:#FA9101 none repeat scroll 0% 0%;
+border:1px solid #8B8B8B;
+color:#FFFFFF;
+cursor:pointer;
+display:block;
+font-size:11px;
+font-weight:bold;
+text-align:center;
+width:154px;
+}
+.rss {
+margin-top: 4px;
+border: 0px;
+}
+.rateBox {
+background-color:#EEEEEE;
+border:1px solid #4C677A;
+margin:6px;
+padding:0;
+}
+.bg-blgray {
+background-color:#5F6467;
+}
+.rateItBox {
+background-color:#FFFFFF;
+border-left:0 solid #4C677A;
+margin:0;
+padding:1px 12px;
+}
+.commentButton {
+background-color:#045BB8;
+border:1px solid #000000;
+color:#FFFFFF;
+display:block;
+font-size:12px;
+font-weight:bold;
+margin:2px;
+padding:2px;
+text-align:center;
+width:125px;
+}
+.red {
+color:#990000;
+font-size:20px;
+}

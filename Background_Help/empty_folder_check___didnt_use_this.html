@@ -1,0 +1,1120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head
+ profile="http://www.w3.org/2005/11/profile">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+        <meta name="ROBOTS" content="INDEX,FOLLOW">
+
+<title>Create batch file to check empty folder</title>
+<meta name="description" content="I need to create a batch file to check
+ through a list of folders and see if it is empty. If it is empty, write
+ the folder name to a text file. I found a command to check if fo...">
+
+<link href="empty_folder_check_files/computing.css" rel="stylesheet" 
+type="text/css" media="all">
+<script type="text/javascript" src="empty_folder_check_files/computing.js" charset="utf-8"></script>
+
+</head><body>
+<p class="toms_links"><a href="http://www.tomsguide.com/" 
+target="_blank">Tom's Guide</a> | <a href="http://www.tomshardware.com/"
+ target="_blank">Tom's Hardware</a> | <a 
+href="http://www.tomsgames.com/" target="_blank">Tom's Games</a> | <a 
+href="http://www.pcsafetysuite.com/" target="_blank">PC Safety Suite</a></p>
+<div id="header">
+<div class="h1">
+<a href="http://www.computing.net/">Computing.Net</a>
+</div>
+<div id="banner">
+<script language="JavaScript1.1"><!--
+sas_tmstp=Math.round(Math.random()*10000000000);sas_masterflag=1;
+function SmartAdServer(sas_pageid,sas_formatid,sas_target) {
+ if (sas_masterflag==1) {sas_masterflag=0;sas_master='M';} else {sas_master='S';};
+ document.write('<SCR'+'IPT SRC="http://www3.smartadserver.com/call/pubj/' + sas_pageid + '/' + sas_formatid + '/'+sas_master + '/' + sas_tmstp + '/' + escape(sas_target) + '?"></SCR'+'IPT>');
+}
+// --></script>
+<script language="JavaScript1.1"><!--
+sas_pageid='8070/62097';     
+sas_formatid=3545;
+sas_target='Programming';
+SmartAdServer(sas_pageid,sas_formatid,sas_target);
+// --></script><script src="empty_folder_check_files/Programming.js"></script>
+</div>
+</div>
+<div id="navbar">
+<ul id="nav">
+	<li class="li_top_level" style="width: 160px;"><a 
+href="http://www.computing.net/forums" class="a_top_level" style="width:
+ 160px;" onmouseover="hidebannerdrop('hidden');" 
+onmouseout="hidebannerdrop('visible');">Specialty Forums <img 
+src="empty_folder_check_files/down_arrow.gif"></a>
+		<ul onmouseover="hidebannerdrop('hidden');" 
+onmouseout="hidebannerdrop('visible');">
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/security/1.html"><div class="icons 
+security_icon"></div> Security and Virus</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/hardware/1.html"><div class="icons 
+hardware_icon"></div> General Hardware</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/cpus/1.html"><div class="icons 
+cpu_icon"></div> CPUs/Overclocking</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/networking/1.html"><div 
+class="icons networking_icon"></div> Networking</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/iphone/1.html"><div class="icons 
+phone_icon"></div> iPad/iPhone/iPod</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/digitalphoto/1.html"><div 
+class="icons photo_icon"></div> Digital Photo/Video</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/office/1.html"><div class="icons 
+office_icon"></div> Office Software</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/gaming/1.html"><div class="icons 
+gaming_icon"></div> PC Gaming</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/consolegaming/1.html"><div 
+class="icons console_icon"></div> Console Gaming</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/programming/1.html"><div 
+class="icons programming_icon"></div> Programming</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/dbase/1.html"><div class="icons 
+database_icon"></div> Database</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/webdevel/1.html"><div class="icons 
+webdevel_icon"></div> Web Development</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/digitalhome/1.html"><div 
+class="icons digitalhome_icon"></div> Digital Home</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/drivers/1.html"><div class="icons 
+drivers_icon"></div> Drivers</a></li>
+		</ul>
+	</li>
+
+	<li class="li_top_level" style="width: 140px;"><a 
+href="http://www.computing.net/forums" class="a_top_level" style="width:
+ 140px;" onmouseover="hidebannerdrop('hidden');" 
+onmouseout="hidebannerdrop('visible');">General Forums <img 
+src="empty_folder_check_files/down_arrow.gif"></a>
+		<ul onmouseover="hidebannerdrop('hidden');" 
+onmouseout="hidebannerdrop('visible');">
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/windowsxp/1.html"><div class="icons
+ win_icon"></div> Windows XP</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/windowsvista/1.html"><div 
+class="icons win_icon"></div> Windows Vista</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/windows7/1.html"><div class="icons 
+win_icon"></div> Windows 7</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/windows95/1.html"><div class="icons
+ win_icon"></div> Windows 95/98</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/windowsme/1.html"><div class="icons
+ win_icon"></div> Windows Me</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/windowsnt/1.html"><div class="icons
+ win_icon"></div> Windows NT</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/windows2000/1.html"><div 
+class="icons win_icon"></div> Windows 2000</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/windows2008/1.html"><div 
+class="icons win_icon"></div> Win Server 2008</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/windows2003/1.html"><div 
+class="icons win_icon"></div> Win Server 2003</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/windows31/1.html"><div class="icons
+ win_icon"></div> Windows 3.1</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/linux/1.html"><div class="icons 
+linux_icon"></div> Linux</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/pda/1.html"><div class="icons 
+pda_icon"></div> PDAs</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/beos/1.html"><div class="icons 
+beos_icon"></div> BeOS</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/netware/1.html"><div class="icons 
+netware_icon"></div> Novell Netware</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/openvms/1.html"><div class="icons 
+openvms_icon"></div> OpenVMS</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/solaris/1.html"><div class="icons 
+solaris_icon"></div> Solaris</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/dos/1.html"><div class="icons 
+dos_icon"></div> Disk Op. System</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/unix/1.html"><div class="icons 
+unix_icon"></div> Unix</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/mac/1.html"><div class="icons 
+mac_icon"></div> Mac</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/os2/1.html"><div class="icons 
+os2_icon"></div> OS/2</a></li>
+<li><a class="a_drop_level" 
+href="http://www.computing.net/forum/thelounge/1.html"><div class="icons
+ lounge_icon"></div> The Lounge</a></li>
+		</ul>
+	</li>
+
+				<li class="li_top_level" style="width: 100px;"><a 
+href="http://products.computing.net/" class="a_top_level" style="width: 
+100px;" onmouseover="hidebannerdrop('hidden');" 
+onmouseout="hidebannerdrop('visible');">Products <img 
+src="empty_folder_check_files/down_arrow.gif"></a>
+	 <ul onmouseover="hidebannerdrop('hidden');" 
+onmouseout="hidebannerdrop('visible');">
+	 <li><a class="a_drop_level" 
+href="http://products.computing.net/categories/components/c/4"><div 
+class="icons hardware_icon"></div> Components</a></li>
+	 <li><a class="a_drop_level" 
+href="http://products.computing.net/categories/digital/c/76"><div 
+class="icons photo_icon"></div> Digital Cameras</a></li>
+     <li><a class="a_drop_level" 
+href="http://products.computing.net/categories/laptop/p/13"><div 
+class="icons win_icon"></div> Laptops</a></li>
+	 <li><a class="a_drop_level" 
+href="http://products.computing.net/categories/memory/c/5"><div 
+class="icons hardware_icon"></div> Memory</a></li>
+	 <li><a class="a_drop_level" 
+href="http://products.computing.net/categories/monitors/c/3"><div 
+class="icons unix_icon"></div> Monitors</a></li>
+	 <li><a class="a_drop_level" 
+href="http://products.computing.net/categories/printers/p/21"><div 
+class="icons openvms_icon"></div> Printers</a></li>
+	 <li><a class="a_drop_level" 
+href="http://products.computing.net/categories/storage-devices/c/6"><div
+ class="icons drivers_icon"></div> Storage Devices</a></li>
+	 <li><a class="a_drop_level" 
+href="http://products.computing.net/categories/video-cards/p/5"><div 
+class="icons digitalhome_icon"></div> Video Cards</a></li>
+	 <li><a class="a_drop_level" 
+href="http://products.computing.net/categories/wireless-networking/p/371"><div
+ class="icons networking_icon"></div> Wireless Networking</a></li>
+         <li><a class="a_drop_level" 
+href="http://products.computing.net/"><div class="icons database_icon"></div>
+ See More</a></li>
+	 </ul>
+
+	</li>	
+
+	<li class="li_top_level" style="width: 90px;"><a 
+href="http://geekdictionary.computing.net/" class="a_top_level" 
+style="width: 90px; color: red;">Geek.dict</a>
+</li>
+	
+		<li class="li_top_level" style="width: 90px;"><a 
+href="http://www.computing.net/howtos/list/1.html" class="a_top_level" 
+style="width: 90px;">How-tos</a>
+	</li>
+	
+		<li class="li_top_level" style="width: 90px;"><a 
+href="http://www.computing.net/forum/drivers/1.html" class="a_top_level"
+ style="width: 90px;">Drivers</a>
+	</li>	
+
+</ul>
+<div id="loginouta">
+<img src="empty_folder_check_files/head_login.gif"></div> 
+<div id="loginoutb"><a style="color: rgb(0, 0, 0); text-decoration: 
+none;" href="http://www.computing.net/cgi-bin/mycomputing.pl">Login</a></div>
+ <div id="loginoutc"><img src="empty_folder_check_files/head_reg.gif"></div><div
+ id="loginoutb" style="margin-right: 0px;"><a style="color: rgb(0, 0, 
+0); text-decoration: none;" 
+href="http://www.computing.net/cgi-bin/mycomputingreg.pl">Register</a></div>
+</div>
+<div id="search_bar">
+<div id="search">
+<form name="searchMain" 
+action="http://www.computing.net/cgi-bin/AT-search.cgi" method="get">
+<input name="mode" value="concept" type="hidden"><input name="sp" 
+value="sp" type="hidden">
+<input name="search" class="search_box" value="batch script test for 
+empty folders" type="text"> <select name="forum" id="search_section" 
+class="search_section">
+<option value="Programming" selected="selected">Coding
+</option><option value="ALL">ALL
+</option><option value="WindowsXP">Win XP
+</option><option value="WindowsVista">Win Vista
+</option><option value="Windows7">Win 7
+</option><option value="Windows9x">Win 95/98
+</option><option value="WindowsNT">Win NT
+</option><option value="WindowsMe">Win Me
+</option><option value="Windows2000">Win 2000
+</option><option value="Windows2008">Win 2008
+</option><option value="Windows2003">Win 2003
+</option><option value="Windows31">Win 3.1
+</option><option value="DigitalHome">E-Home
+</option><option value="Office">Office
+</option><option value="Gaming">PC Games
+</option><option value="ConsoleGaming">Con Games
+</option><option value="Drivers">Drivers
+</option><option value="Linux">Linux
+</option><option value="WebDevelopment">Websites
+</option><option value="DigitalPhoto">E-Photo
+
+</option><option value="Hardware">Hardware
+</option><option value="Security">Security
+</option><option value="Programming">Coding
+</option><option value="PDAs">PDAs
+</option><option value="Networking">Networks
+</option><option value="iPhone">iPhone
+</option><option value="Database">Database
+</option><option value="CPUs">CPUs
+</option><option value="Solaris">Solaris
+</option><option value="BeOS">BeOS
+</option><option value="Netware">Novell
+</option><option value="OpenVMS">OpenVMS
+</option><option value="DOS">DOS
+</option><option value="Unix">Unix
+</option><option value="Mac">Mac
+</option><option value="OS2">OS/2
+</option><option value="TheLounge">Lounge
+</option></select>
+ <input value="submit" src="empty_folder_check_files/search_box_o.gif" 
+class="search_submit" border="0" type="IMAGE">
+</form>
+<p class="search_des">
+<a href="http://www.computing.net/forum/security/1.html">Security &amp; 
+Virus</a> | <a href="http://www.computing.net/forum/hardware/1.html">Hardware</a>
+ | <a href="http://www.computing.net/forum/windowsxp/1.html">Windows XP</a>
+ | <a href="http://www.computing.net/forum/windowsvista/1.html">Windows 
+Vista</a>  | <a href="http://www.computing.net/forum/gaming/1.html">PC 
+Gaming</a> 
+</p>
+</div>
+<div class="h1">
+<a href="http://www.computing.net/askquestion">Ask Question</a>
+</div>
+</div>
+
+<div id="computing_main" class="">
+<div id="left">
+<div style="margin-bottom: 5px; font-size: 9px;"><a 
+href="http://www.computing.net/">Computing.Net</a> &gt; <a 
+href="http://www.computing.net/forums">Forums</a> &gt; <a 
+href="http://www.computing.net/forum/programming/1.html">Programming</a>
+ &gt; Create batch file to check empty folder</div>
+<br>
+<!-- start content -->
+<table style="border: 2px solid rgb(40, 132, 209);" align="center" 
+cellpadding="7" cellspacing="0" width="96%"><tbody><tr><td 
+style="text-align: left; font-size: 12px; background-color: rgb(255, 
+255, 255); padding: 5px;" width="*">You have searched for "<a 
+style="color: rgb(40, 132, 209);" 
+href="http://www.computing.net/cgi-bin/relateds.cgi/batch+script+test+for+%22empty+folders%22/ALL"
+ target="_blank"><b>batch script test for empty folders</b></a>." You 
+might be interested in the following threads:</td></tr><tr><td 
+style="text-align: left; font-size: 12px; background-color: rgb(255, 
+255, 255); padding-left: 5px;" width="*"><ul>
+<li style="list-style-image: 
+url(&quot;http://static.computing.net/img/also_bullet.gif&quot;);"><a 
+style="color: rgb(40, 132, 209);" 
+href="http://www.computing.net/answers/programming/using-batch-script-print-filenames-in-folder-/19171.html">Using
+ batch script print filenames in folder </a></li>
+<li style="list-style-image: 
+url(&quot;http://static.computing.net/img/also_bullet.gif&quot;);"><a 
+style="color: rgb(40, 132, 209);" 
+href="http://www.computing.net/answers/programming/batch-script-not-getting-values-from-file/20779.html">Batch
+ script not getting values from file</a></li>
+<li style="list-style-image: 
+url(&quot;http://static.computing.net/img/also_bullet.gif&quot;);"><a 
+style="color: rgb(40, 132, 209);" 
+href="http://www.computing.net/answers/programming/batch-script-to-list-folder-permissions-/20938.html">Batch
+ Script to list folder permissions </a></li>
+<li style="list-style-image: 
+url(&quot;http://static.computing.net/img/also_bullet.gif&quot;);"><a 
+style="color: rgb(40, 132, 209);" 
+href="http://www.computing.net/answers/programming/xp-batch-script-to-rename-files/14608.html">XP
+ batch script to rename files</a></li>
+<li style="list-style-image: 
+url(&quot;http://static.computing.net/img/also_bullet.gif&quot;);"><a 
+style="color: rgb(40, 132, 209);" 
+href="http://www.computing.net/answers/programming/batch-script/15386.html">Batch
+ Script</a></li>
+<div style="float: right; padding: 3px 8px; border-top: 1px dotted 
+rgb(40, 132, 209); border-left: 1px dotted rgb(40, 132, 209);"><form 
+method="post" action="http://www.computing.net/askquestion/" 
+style="margin: 0pt; padding: 0pt;"><i>Can't find your Answer?</i> <big><b>Ask!</b></big><br><input
+ name="subject" value="batch script test for empty folders" 
+style="height: 20px; width: 175px; border: 1px solid rgb(192, 203, 
+209);" maxlength="45" type="text"> <input value="Go!" style="width: 
+30px; height: 20px; border: 1px solid black;" type="submit"></form></div></ul><p
+ style="margin: 10px 5px 0px;" align="left"><a style="color: rgb(40, 
+132, 209);" 
+href="http://www.computing.net/cgi-bin/relateds.cgi/batch+script+test+for+%22empty+folders%22/ALL"
+ target="_blank">See more for "<b>batch script test for empty folders</b>."</a></p></td></tr></tbody></table><br>
+<script>
+if ((typeof document.body.style.maxHeight != "undefined")) { 
+document.write('<div style="z-index: 500; position: fixed; left: 0; bottom: 0; color: #FFFFFF; width: 100%; height: 45px; padding-top: 5px; text-align: center; background-color: #00B7FB;"><TABLE align="center"><TR><TD valign="top"><IMG SRC="http://static.computing.net/img/also_found_intro.png"></TD><TD valign="top"><FORM id="we_also" name="we_also" style="margin: 0px; padding: 0px;"><select name="forum" style="font-size: 22px; margin: 0px; height: 32px;" OnChange="location.href=this.options[selectedIndex].value"><OPTION VALUE="http://www.computing.net/answers/programming/using-batch-script-print-filenames-in-folder-/19171.html">Using batch script print filenames in folder </OPTION><OPTION VALUE="http://www.computing.net/answers/programming/batch-script-not-getting-values-from-file/20779.html">Batch script not getting values from file</OPTION><OPTION VALUE="http://www.computing.net/answers/programming/batch-script-to-list-folder-permissions-/20938.html">Batch Script to list folder permissions </OPTION><OPTION VALUE="http://www.computing.net/answers/programming/xp-batch-script-to-rename-files/14608.html">XP batch script to rename files</OPTION><OPTION VALUE="http://www.computing.net/answers/programming/batch-script/15386.html">Batch Script</OPTION></SELECT><IMG src="http://static.computing.net/img/we_also_found.gif" style="margin-left: 5px; position: absolute;" onclick="location.href=document.we_also.forum.options[document.we_also.forum.selectedIndex].value"></FORM></TD>');
+document.write('</TR></TABLE></div>');
+}
+</script><div style="z-index: 500; position: fixed; left: 0pt; bottom: 
+0pt; color: rgb(255, 255, 255); width: 100%; height: 45px; padding-top: 
+5px; text-align: center; background-color: rgb(0, 183, 251);"><table 
+align="center"><tbody><tr><td valign="top"><img 
+src="empty_folder_check_files/also_found_intro.png"></td><td 
+valign="top"><form id="we_also" name="we_also" style="margin: 0px; 
+padding: 0px;"><select name="forum" style="font-size: 22px; margin: 0px;
+ height: 32px;" 
+onchange="location.href=this.options[selectedIndex].value"><option 
+selected="selected" 
+value="http://www.computing.net/answers/programming/using-batch-script-print-filenames-in-folder-/19171.html">Using
+ batch script print filenames in folder </option><option 
+value="http://www.computing.net/answers/programming/batch-script-not-getting-values-from-file/20779.html">Batch
+ script not getting values from file</option><option 
+value="http://www.computing.net/answers/programming/batch-script-to-list-folder-permissions-/20938.html">Batch
+ Script to list folder permissions </option><option 
+value="http://www.computing.net/answers/programming/xp-batch-script-to-rename-files/14608.html">XP
+ batch script to rename files</option><option 
+value="http://www.computing.net/answers/programming/batch-script/15386.html">Batch
+ Script</option></select><img 
+src="empty_folder_check_files/we_also_found.gif" style="margin-left: 
+5px; position: absolute;" 
+onclick="location.href=document.we_also.forum.options[document.we_also.forum.selectedIndex].value"></form></td></tr></tbody></table></div>
+	   
+<h3 style="padding: 5px; color: rgb(255, 255, 255); background: none 
+repeat scroll 0% 0% rgb(40, 132, 209); text-transform: capitalize; 
+width: 95%; margin: auto;">Create batch file to check empty folder</h3>
+<table style="margin: 5px auto;">
+<tbody><tr>
+<td width="103"><a href="#postfp"><img 
+src="empty_folder_check_files/reply_new.gif" alt="Reply to Message Icon"
+ border="0"></a></td>
+<td width="124"><a 
+href="http://www.computing.net/programming/wwwboard/wwwpost.html"><img 
+src="empty_folder_check_files/post_new.gif" border="0"></a></td>
+</tr>
+</tbody></table>
+<script type="text/javascript" src="empty_folder_check_files/google_service.js">
+</script>
+<script type="text/javascript">
+  GS_googleAddAdSenseService("ca-pub-6851619822978950");
+  GS_googleEnableAllServices();
+</script>
+<script type="text/javascript">
+  GA_googleAddSlot("ca-pub-6851619822978950", "TopTextLink_US_Computing_ROS");
+</script>
+<script language="JavaScript">
+GA_googleAddAttr("categ", "programming");
+</script>
+<script type="text/javascript">
+  GA_googleFetchAds();
+</script>
+<script type="text/javascript">
+GA_googleFillSlot('TopTextLink_US_Computing_ROS')
+</script>
+<div class="topforum" style="background-color: rgb(19, 120, 224); 
+border: 1px solid rgb(19, 120, 224);">
+<b>Name: <a style="color: rgb(255, 255, 255);" 
+href="http://www.computing.net/userinfo/229650" 
+onmouseover="tooltip.show('Member Since: January 25, 2010 
+Pacific<br/>Last Active: Over a Month Ago');" 
+onmouseout="tooltip.hide();">flea184</a></b><br>
+<b>Date: </b>January 25, 2010 at 08:37:49 Pacific<br>
+<b>OS: </b>Windows XP<br><b>Subcategory: </b><a style="color: rgb(255, 
+255, 255);" href="http://www.computing.net/forum/programming/54/1.html">Batch</a><br></div><div
+ class="bottomforum">
+<font size="1"><b>Comment:</b> </font><div class="KonaBody"><blockquote><table
+ width="100%"><tbody><tr><td><p>I need to create a batch file to check 
+through a list of folders and see if it is empty. If it is empty, write 
+the folder name to a text file.</p><p>I found a command to check if 
+folder is empty.</p><p>To check if folder is empty.<br>dir "C:\*.*" /b 
+/a | find /v "NoTlIkElY" &gt;nul &amp;&amp; echo NOT empty || echo empty</p><p>However,
+ I do not know how to create a loop to check through all the folders and
+ output to a text file. </p><p>Please help.</p><p>Thanks<br></p></td></tr></tbody></table></blockquote>
+<a href=""></a></div><br></div>
+<br><div class="topforum"><b><a 
+onclick="window.open('https://www.google.com/adsense/support/bin/request.py?contact=abg_afc&amp;url='+location.href+'&amp;hl=en&amp;client=ca-pub-8792502999873740')"
+ style="color: rgb(255, 255, 255); cursor: pointer;">Google Ads</a></b>
+</div>
+<div class="bottomforum" style="padding-top: 0px; background-color: 
+rgb(255, 255, 255);">
+<script type="text/javascript">
+//<![CDATA[
+outclick="http://www.bestofmicro.com/shopping/clic.php?id_site=21&amp;zone=&amp;e=adSense-Topic&amp;m=696&amp;go=";
+//]]>
+</script>
+<script type="text/javascript" src="empty_folder_check_files/adsense.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var cn_google_count = 2;
+google_ad_client = "pub-8792502999873740";
+google_ad_channel = "8204582032";
+google_language = "en";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "#FFFFF5";
+google_color_text = "#3A286F";
+google_color_url = "#94BEEA";
+google_ad_output = "js";
+google_feedback = "on";
+google_ad_type = "text";
+google_max_num_ads = "2";
+//]]>
+</script>
+<script type="text/javascript" src="empty_folder_check_files/show_ads.js"></script>
+</div>
+<br><center><b>Response Number 1</b></center>
+<div class="topforum">
+ <a onmouseover="tooltip.show('Gold Member. Click for more rankings.');"
+ onmouseout="tooltip.hide();" 
+href="http://www.computing.net/userinfo/215180"><img 
+src="empty_folder_check_files/gold_inpost.png" align="right" border="0"></a>
+<b>Name: <a style="color: rgb(255, 255, 255);" 
+href="http://www.computing.net/userinfo/215180" 
+onmouseover="tooltip.show('Member Since: October 11, 2009 
+Pacific<br/>Last Active: Today');" onmouseout="tooltip.hide();">nbrane</a></b><br>
+<b>Date: </b>January 25, 2010 at 14:12:54 Pacific<br>
+</div><div class="bottomforum" style="background-color: rgb(233, 247, 
+253);">
+<font size="1"><table cellpading="0" align="right" cellspacing="0"><tbody><tr><td
+ style="text-align: left; font-size: 18px; color: rgb(86, 198, 25); 
+font-weight: bold;" valign="top"><div id="great3219272">+2</div></td><td
+ style="padding-left: 5px;"><a style="cursor: pointer;" 
+onclick="GetContent( 'great3219272',  
+'/cgi-bin/great_answer_vote.pl?3219272', false ); tooltip.hide();"><img 
+src="empty_folder_check_files/vote_up.png" border="0"></a> <a 
+style="cursor: pointer;" onclick="GetContent( 'great3219272',  
+'/cgi-bin/great_answer_vote_down.pl?3219272', false ); tooltip.hide();"><img
+ src="empty_folder_check_files/vote_down.png" border="0"></a></td></tr></tbody></table><b>Reply:</b>
+ </font><div class="KonaBody"><blockquote><table width="100%"><tbody><tr><td><p>i
+ like that script, pretty slick use of errorlevel from "find"!<br>i 
+never would have thought to use it like that.</p><p>make it into a for/r
+ loop:</p><p>for /r %%a in (.) do (<br>dir  /b "%%a"  | find /v 
+"NoTlIkElY" &gt;nul &amp;&amp; echo %%a NOT empty || echo %%a empty<br>)</p><p><br>ps:
+ i don't <i>think</i> you have to use the "NoTlIkElY" string, just "" 
+will do, i <i>think</i><br>but i left it the way you had it just in 
+case!<br></p></td></tr></tbody></table></blockquote>
+<a href=""></a></div><br></div>
+<br><center><b>Response Number 2</b></center>
+<div class="topforum">
+<b>Name: <a style="color: rgb(255, 255, 255);" 
+href="http://www.computing.net/userinfo/229650" 
+onmouseover="tooltip.show('Member Since: January 25, 2010 
+Pacific<br/>Last Active: Over a Month Ago');" 
+onmouseout="tooltip.hide();">flea184</a></b><br>
+<b>Date: </b>January 25, 2010 at 16:37:56 Pacific<br>
+</div><div class="bottomforum">
+<font size="1"><table cellpading="0" align="right" cellspacing="0"><tbody><tr><td
+ style="text-align: left; font-size: 18px; color: rgb(86, 198, 25); 
+font-weight: bold;" valign="top"><div id="great3219326">+1</div></td><td
+ style="padding-left: 5px;"><a style="cursor: pointer;" 
+onclick="GetContent( 'great3219326',  
+'/cgi-bin/great_answer_vote.pl?3219326', false ); tooltip.hide();"><img 
+src="empty_folder_check_files/vote_up.png" border="0"></a> <a 
+style="cursor: pointer;" onclick="GetContent( 'great3219326',  
+'/cgi-bin/great_answer_vote_down.pl?3219326', false ); tooltip.hide();"><img
+ src="empty_folder_check_files/vote_down.png" border="0"></a></td></tr></tbody></table><b>Reply:</b>
+ </font><div class="KonaBody"><blockquote><table width="100%"><tbody><tr><td><p>Hi,</p><p>Thanks.
+ I found the script online actually, not done by me.</p><p>Can I use 
+dir/b/s/ad |FIND /c ":\" to get the number of folder, and pass the 
+result into the loop?</p><p>Kindly guide me on this.</p><p>Thanks. :)</p><p>And
+ how do I output the empty folder name to a text file?</p><p><br></p></td></tr></tbody></table></blockquote>
+<a href=""></a></div><br></div>
+<br><center><b>Response Number 3</b></center>
+<div class="topforum">
+ <a onmouseover="tooltip.show('Gold Member. Click for more rankings.');"
+ onmouseout="tooltip.hide();" 
+href="http://www.computing.net/userinfo/215180"><img 
+src="empty_folder_check_files/gold_inpost.png" align="right" border="0"></a>
+<b>Name: <a style="color: rgb(255, 255, 255);" 
+href="http://www.computing.net/userinfo/215180" 
+onmouseover="tooltip.show('Member Since: October 11, 2009 
+Pacific<br/>Last Active: Today');" onmouseout="tooltip.hide();">nbrane</a></b><br>
+<b>Date: </b>January 25, 2010 at 20:06:21 Pacific<br>
+</div><div class="bottomforum" style="background-color: rgb(233, 247, 
+253);">
+<font size="1"><table cellpading="0" align="right" cellspacing="0"><tbody><tr><td
+ style="text-align: left; font-size: 18px; color: rgb(86, 198, 25); 
+font-weight: bold;" valign="top"><div id="great3219409">+1</div></td><td
+ style="padding-left: 5px;"><a style="cursor: pointer;" 
+onclick="GetContent( 'great3219409',  
+'/cgi-bin/great_answer_vote.pl?3219409', false ); tooltip.hide();"><img 
+src="empty_folder_check_files/vote_up.png" border="0"></a> <a 
+style="cursor: pointer;" onclick="GetContent( 'great3219409',  
+'/cgi-bin/great_answer_vote_down.pl?3219409', false ); tooltip.hide();"><img
+ src="empty_folder_check_files/vote_down.png" border="0"></a></td></tr></tbody></table><b>Reply:</b>
+ </font><div class="KonaBody"><blockquote><table width="100%"><tbody><tr><td><p>@echo
+ off&gt;FILES.TXT<br>for /r %%a in (.) do (<br>dir /b "%%a" | find /v 
+"NoTlIkElY" &gt;nul &amp;&amp; echo %%a NOT empty || &gt;&gt;FILES.TXT 
+echo %%a empty<br>)</p><p>this should put the results int FILES.TXT.<br>I'm
+ not sure what you mean about passing the count (number of subdirs) into
+ the loop...how do you want to use it? it's just one number, and has no 
+effect on the action of the loop...<br></p></td></tr></tbody></table></blockquote>
+<a href=""></a></div><br></div>
+<br><center><b>Response Number 4</b></center>
+<div class="topforum">
+ <a onmouseover="tooltip.show('Gold Member. Click for more rankings.');"
+ onmouseout="tooltip.hide();" 
+href="http://www.computing.net/userinfo/137440"><img 
+src="empty_folder_check_files/gold_inpost.png" align="right" border="0"></a>
+<b>Name: <a style="color: rgb(255, 255, 255);" 
+href="http://www.computing.net/userinfo/137440" 
+onmouseover="tooltip.show('Member Since: February 9, 2008 
+Pacific<br/>Last Active: This Week');" onmouseout="tooltip.hide();">tvc</a></b><br>
+<b>Date: </b>January 26, 2010 at 09:08:37 Pacific<br>
+</div><div class="bottomforum">
+<font size="1"><table cellpading="0" align="right" cellspacing="0"><tbody><tr><td
+ style="text-align: left; font-size: 18px; color: rgb(86, 198, 25); 
+font-weight: bold;" valign="top"><div id="great3219693">+1</div></td><td
+ style="padding-left: 5px;"><a style="cursor: pointer;" 
+onclick="GetContent( 'great3219693',  
+'/cgi-bin/great_answer_vote.pl?3219693', false ); tooltip.hide();"><img 
+src="empty_folder_check_files/vote_up.png" border="0"></a> <a 
+style="cursor: pointer;" onclick="GetContent( 'great3219693',  
+'/cgi-bin/great_answer_vote_down.pl?3219693', false ); tooltip.hide();"><img
+ src="empty_folder_check_files/vote_down.png" border="0"></a></td></tr></tbody></table><b>Reply:</b>
+ </font><div class="KonaBody"><blockquote><table width="100%"><tbody><tr><td><p>dir
+ "C:\*.*" /b /a | find /v "NoTlIkElY" &gt;nul &amp;&amp; echo NOT empty 
+|| echo empty</p><p>Is there a headache-oneline-code award on this site ?
+ I would like to nominate one ... ;)<br></p></td></tr></tbody></table></blockquote>
+<a href=""></a></div><br></div>
+<br><center><b>Response Number 5</b></center>
+<div class="topforum">
+ <a onmouseover="tooltip.show('Gold Member. Click for more rankings.');"
+ onmouseout="tooltip.hide();" 
+href="http://www.computing.net/userinfo/137440"><img 
+src="empty_folder_check_files/gold_inpost.png" align="right" border="0"></a>
+<b>Name: <a style="color: rgb(255, 255, 255);" 
+href="http://www.computing.net/userinfo/137440" 
+onmouseover="tooltip.show('Member Since: February 9, 2008 
+Pacific<br/>Last Active: This Week');" onmouseout="tooltip.hide();">tvc</a></b><br>
+<b>Date: </b>January 26, 2010 at 09:39:49 Pacific<br>
+</div><div class="bottomforum" style="background-color: rgb(233, 247, 
+253);">
+<font size="1"><table cellpading="0" align="right" cellspacing="0"><tbody><tr><td
+ style="text-align: left; font-size: 18px; color: rgb(86, 198, 25); 
+font-weight: bold;" valign="top"><div id="great3219711">+1</div></td><td
+ style="padding-left: 5px;"><a style="cursor: pointer;" 
+onclick="GetContent( 'great3219711',  
+'/cgi-bin/great_answer_vote.pl?3219711', false ); tooltip.hide();"><img 
+src="empty_folder_check_files/vote_up.png" border="0"></a> <a 
+style="cursor: pointer;" onclick="GetContent( 'great3219711',  
+'/cgi-bin/great_answer_vote_down.pl?3219711', false ); tooltip.hide();"><img
+ src="empty_folder_check_files/vote_down.png" border="0"></a></td></tr></tbody></table><b>Reply:</b>
+ </font><div class="KonaBody"><blockquote><table width="100%"><tbody><tr><td><p>Stole
+ some of Mechanix's code ( <a 
+href="http://www.computing.net/answers/programming/check-for-empty-main-folder/17014.html"
+ target="_blank">http://www.computing.net/answers/pr...</a> ) to check 
+on directory emptiness.</p><p><br>This code is tested:</p><p>You may 
+need to finetune for special files (hidden, system), but it looks to be 
+working OK:</p><p>@echo on</p><p>set outfile=C:\emptydirs.log<br>set 
+where2look=C:\</p><p>del %outfile%</p><p>for /F "tokens=*" %%a in ('dir 
+%where2look% /B /AD /S') do (<br>dir "%%a" /b &gt; nul 2&gt; nul<br>if 
+errorlevel 1 (<br>echo Directory "%%a" is empty&gt;&gt; %outfile%<br>)<br>)<br></p></td></tr></tbody></table></blockquote>
+<a href=""></a></div><br></div>
+<br><center>
+<fieldset style="width: 425px;">
+<legend>Related Posts</legend>
+							<table style="border: 0px none; text-align: left;" align="center"
+ bgcolor="#ffffff" width="400">
+<tbody><tr><td style="padding: 10px;" width="50%"><font face="Arial, 
+Helvetica, Verdana, sans-serif" size="2"><ul id="RT-list">
+<li><a 
+href="http://www.computing.net/answers/webdevel/php-array-to-string/3240.html">php
+ array to string</a></li>
+<li><a 
+href="http://www.computing.net/answers/programming/if-else-error-in-batch-file/15450.html">batch
+ file if else</a></li>
+<li><a 
+href="http://www.computing.net/answers/dos/pause-a-batch-file-for-10-sec/8249.html">batch
+ file pause</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/programming/if-else-statement-in-batch-file/16954.html">BATCH
+ FILE IF STATEMENT</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/windows-95/failed-to-create-empty-document/162305.html">failed
+ to create empty document</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/dos/making-batch-file-wait-for-one-task-to-finish-before-another-starts/5011.html">Batch
+ file wait</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/webdevel/how-to-create-exe-file/290.html">create
+ exe file</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/windows-2000/creating-folder-in-batch-file/60537.html">batch
+ file create folder</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/programming/perl-how-to-print-to-file/11649.html">perl
+ output to file</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/programming/batch-loop-with-counter/15198.html">batch
+ loop</a></li>
+</ul></font></td><td style="padding: 10px;" width="50%"><font 
+face="Arial, Helvetica, Verdana, sans-serif" size="2"></font><ul 
+id="RT-list2">
+<font face="Arial, Helvetica, Verdana, sans-serif" size="2"><li><a 
+href="http://www.computing.net/answers/programming/how-to-create-batch-file/17467.html">how
+ to create batch file</a></li>
+<li><a 
+href="http://www.computing.net/answers/windows-2003/how-to-setup-domain-on-win2003-serv/5016.html">how
+ to create domain</a></li>
+<li><a 
+href="http://www.computing.net/answers/windows-xp/creating-a-batch-file-in-xp/48561.html">how
+ to create a batch file in windows xp</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/programming/copy-folders-in-a-batch-file/16599.html">batch
+ file copy folder</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/programming/batch-file-for-loop/11504.html">batch
+ file loop</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/programming/batch-to-create-folder-name-from/14862.html">create
+ folder batch</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/dos/batch-file-variables/14203.html">batch
+ file loop counter</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/windows-xp/convert-folder-to-file-problem/55718.html">convert
+ file to folder</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/dos/what-does-nul-do-in-a-batch-file/198.html">batch
+ file nul</a></li>
+<li class="group_related"><a 
+href="http://www.computing.net/answers/windows-2000/how-do-i-check-if-a-port-is-open-/41018.html">How
+ to check if port is open</a></li>
+   </font></ul><font face="Arial, Helvetica, Verdana, sans-serif" 
+size="2"></font></td></tr>
+<tr><td colspan="2"><p align="right"><a style="text-decoration: 
+underline; cursor: pointer;" onclick="BOMshowMore(); this.className = 
+'group_related';">See More</a></p></td></tr></tbody></table>
+   </fieldset>
+</center>
+<br>
+<br>
+<div class="topforum"><b><a 
+onclick="window.open('https://www.google.com/adsense/support/bin/request.py?contact=abg_afc&amp;url='+location.href+'&amp;hl=en&amp;client=ca-pub-8792502999873740')"
+ style="color: rgb(255, 255, 255); cursor: pointer;">Google Ads</a></b>
+</div>
+<div class="bottomforum" style="padding-top: 0px;">
+<script type="text/javascript">
+//<![CDATA[
+outclick="http://www.bestofmicro.com/shopping/clic.php?id_site=21&amp;zone=&amp;e=adSense-Topic&amp;m=696&amp;go=";
+//]]>
+</script>
+<script type="text/javascript" src="empty_folder_check_files/adsense.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof cn_google_count != 'undefined') {
+  google_skip=cn_google_count;
+  cn_google_count += 2;
+}
+google_ad_client = "pub-8792502999873740";
+google_ad_channel = "3681368583";
+google_language = "en";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "#FFFFF5";
+google_color_text = "#3A286F";
+google_color_url = "#94BEEA";
+google_ad_output = "js";
+google_feedback = "on";
+google_ad_type = "text";
+google_max_num_ads = "2";
+//]]>
+</script>
+<script type="text/javascript" src="empty_folder_check_files/show_ads.js"></script>
+</div>
+<center><table style="border-spacing: 0px; border: 0px none; width: 95%;
+ text-align: left; font-size: 12px;"><tbody><tr><td><a href="#postfp"><img
+ src="empty_folder_check_files/reply_new.gif" alt="Reply to Message 
+Icon" align="right" border="0"></a></td></tr></tbody></table></center><br>
+<table style="width: 100%; font-size: 12px;"><tbody><tr><td align="left">
+<img src="empty_folder_check_files/left_arrow_new.gif"><a 
+href="http://www.computing.net/answers/programming/remove-linebreak-from-text-file/20703.html"
+ style="color: rgb(11, 119, 183);">Remove linebreak from tex...</a>
+</td><td align="right">
+<a 
+href="http://www.computing.net/answers/programming/updating-database-visual-basic-2005/20705.html"
+ style="color: rgb(11, 119, 183);">Updating Database - Visua...</a><img 
+src="empty_folder_check_files/right_arrow_new.gif">
+</td></tr></tbody></table>
+<br><center><img src="empty_folder_check_files/post_lock.gif"><br><br>
+    <font size="3"><strong>
+    <a name="postfp"></a><b>Post Locked</b>
+    </strong></font></center><p>This post is quite old and has been 
+locked from receiving new replies. Please create a new posting instead.</p>
+<br><div style="padding: 5px; border: 1px dashed rgb(19, 120, 224); 
+height: 45px; width: 550px; background: 
+url(&quot;http://static.computing.net/img/ask_new.gif&quot;) no-repeat 
+scroll left top rgb(255, 255, 255); margin: auto;"><table 
+style="margin-left: 155px;"><form style="margin: 0pt; padding: 0pt;" 
+method="POST" action="http://www.computing.net/askquestion/"></form><tbody><tr><td><input
+ name="subject" value="batch script test for empty folders" 
+maxlength="45" style="border: 1px solid rgb(192, 203, 209); font-size: 
+26px; height: 30px; width: 315px; margin-top: 6px;" type="text"></td><td><input
+ value="Ask!" style="margin-left: 5px; border: 1px solid rgb(178, 178, 
+178); background: none repeat scroll 0% 0% rgb(227, 227, 227); 
+font-size: 23px; height: 32px; width: 60px; margin-top: 6px;" 
+type="submit"></td></tr></tbody></table></div>
+<br><br><font size="3"><strong><a 
+onclick="window.open('https://www.google.com/adsense/support/bin/request.py?contact=abg_afc&amp;url='+location.href+'&amp;hl=en&amp;client=ca-pub-8792502999873740')"
+ style="color: rgb(0, 0, 0); cursor: pointer;">Google Ads</a></strong></font>
+<div style="margin-left: 40px;">
+  <hr noshade="noshade" size="1" width="100%">
+</div>
+<script type="text/javascript">
+//<![CDATA[
+outclick="http://www.bestofmicro.com/shopping/clic.php?id_site=21&amp;zone=&amp;e=adSense-Topic-bottom&amp;m=696&amp;go=";
+//]]>
+</script>
+<script type="text/javascript" src="empty_folder_check_files/adsense.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof cn_google_count != 'undefined') {
+  google_skip=cn_google_count;
+}
+google_ad_client = "pub-8792502999873740";
+google_ad_channel = "0137911336";
+google_language = "en";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "#1378E5";
+google_color_text = "#3A286F";
+google_color_url = "#1390F0";
+google_ad_output = "js";
+google_feedback = "on";
+google_ad_type = "text";
+google_max_num_ads = "2";
+//]]>
+</script>
+<script type="text/javascript" src="empty_folder_check_files/show_ads.js"></script>
+<br>
+<br>
+<font size="3"><strong>Results for: <b>batch script test for empty 
+folders</b></strong></font>
+<div style="margin-left: 40px;"><hr noshade="noshade" size="1" 
+width="100%"></div>
+<a 
+href="http://www.computing.net/answers/programming/using-batch-script-print-filenames-in-folder-/19171.html"><b>Using
+ batch script print filenames in folder </b></a> <ul> <i>Summary</i>: 
+Hi,  From a folder i should print all the filenames with its directory 
+name only once. how I can it using batch script.  say these are file 
+names: D:\Ant\latest\Updated2\html.txt  D:\Ant\latest\Update...</ul><a 
+href="http://www.computing.net/answers/programming/using-batch-script-print-filenames-in-folder-/19171.html">www.computing.net/answers/programming/using-batch-script-print-filenames-in-folder-/19171.html</a><br><br>
+<a 
+href="http://www.computing.net/answers/programming/batch-script-not-getting-values-from-file/20779.html"><b>Batch
+ script not getting values from file</b></a> <ul> <i>Summary</i>: Hello,
+ I'm writing a batch script to copy some files, run a program (SARA) and
+ read values from a file which SARA generates (chunklog.inf) - (and a 
+bunch of other stuff not important here.) However I'...</ul><a 
+href="http://www.computing.net/answers/programming/batch-script-not-getting-values-from-file/20779.html">www.computing.net/answers/programming/batch-script-not-getting-values-from-file/20779.html</a><br><br>
+<a 
+href="http://www.computing.net/answers/programming/batch-script-to-list-folder-permissions-/20938.html"><b>Batch
+ Script to list folder permissions </b></a> <ul> <i>Summary</i>: Hi, I 
+would like to write a batch script to perform the following tasks, 1) 
+The script should ask the user to input the drive information (C:\, D:\,
+ etc) 2) Once the user inputs the drive information,...</ul><a 
+href="http://www.computing.net/answers/programming/batch-script-to-list-folder-permissions-/20938.html">www.computing.net/answers/programming/batch-script-to-list-folder-permissions-/20938.html</a><br><br>
+</div>
+<div id="right"><br>
+<fieldset style="width: 90%;"><legend>Explore Similar Topics</legend><br>
+	   <style type="text/css">
+.exp_similar a {text-decoration: none; cursor: pointer;}
+.exp_similar_2 a {text-decoration: none; cursor: pointer;}
+.exp_similar a:hover {background: #000000; cursor: pointer;}
+.exp_similar_2 a:hover {background: #FF0000; cursor: pointer;}
+</style>
+<big><center>
+<div class="exp_similar"><a style="color: rgb(255, 0, 0);" 
+onclick="BOMgo('aHR0cDovL3d3dy5jb21wdXRpbmcubmV0L2NnaS1iaW4vcmVsYXRlZHMuY2dpL2JhdGNoLXNjcmlwdC10ZXN0LWZvci1lbXB0eS1mb2xkZXJzL0FMTA==',
+ false)">batch script test for empty folders</a></div>
+<div class="exp_similar_2"><a style="color: rgb(0, 0, 0);" 
+onclick="BOMgo('aHR0cDovL3d3dy5jb21wdXRpbmcubmV0L2NnaS1iaW4vcmVsYXRlZHMuY2dpL2hvdy10by1jcmVhdC1ibGFuay1mb2xkZXItbmFtZS9BTEw=',
+ false)">how to creat blank folder name</a></div>
+<div class="exp_similar"><a style="color: rgb(255, 0, 0);" 
+onclick="BOMgo('aHR0cDovL3d3dy5jb21wdXRpbmcubmV0L2NnaS1iaW4vcmVsYXRlZHMuY2dpL3dpbmRvd3MtaG93LXRvLWtub3ctaWYtZm9sZGVyLWlzLWVtcHR5L0FMTA==',
+ false)">windows how to know if folder is empty</a></div>
+<div class="exp_similar_2"><a style="color: rgb(0, 0, 0);" 
+onclick="BOMgo('aHR0cDovL3d3dy5jb21wdXRpbmcubmV0L2NnaS1iaW4vcmVsYXRlZHMuY2dpL3NjcmlwdC10by1jaGVjay13aGV0aGVyLWEtbGlzdC1vZi1mb2xkZXJzLWFyZS1lbXB0eS9BTEw=',
+ false)">script to check whether a list of folders are e...</a></div>
+<div class="exp_similar"><a style="color: rgb(255, 0, 0);" 
+onclick="BOMgo('aHR0cDovL3d3dy5jb21wdXRpbmcubmV0L2NnaS1iaW4vcmVsYXRlZHMuY2dpL2JhdGNoLWZpbGUtZmluZC1lbXB0eS1mb2xkZXJzL0FMTA==',
+ false)">batch file find empty folders</a></div>
+</center></big><br></fieldset>
+<br>
+<br>
+<center><div style="visibility: visible;" id="rightbanner">
+<script language="JavaScript1.1"><!--
+sas_pageid='8070/62097';     
+sas_formatid=3547;
+sas_target='Programming';
+SmartAdServer(sas_pageid,sas_formatid,sas_target);
+// --></script><script src="empty_folder_check_files/Programming_003.js"></script>
+</div></center>
+<br>
+<div style="width: 100%; font-size: 1.5em;">
+<fieldset>
+<script type="text/javascript"><!--
+var show_tt_side = 0;
+// --></script>
+<legend>Ask a Question!</legend>
+
+<div style="margin-top: 8px; margin-left: 5px; font-size: 0.7em;">Subject<br>
+<input style="width: 300px;" name="subject" maxlength="45" 
+onmouseover="if(show_tt_side < 2) { show_tt_side++; tooltip.show('Use 
+this form to post a new question on the site.<br/><strong>Note:</strong>
+ Please be descriptive as possible to ensure a fast answer.'); }" 
+onclick="tooltip.hide();" onmouseout="tooltip.hide();" type="text">
+<br>Message<br>
+<textarea name="body" style="width: 300px; height: 100px;" 
+wrap="virtual" onmouseover="if(show_tt_side < 2) { show_tt_side++; 
+tooltip.show('Use this form to post a new question on the 
+site.<br/><strong>Note:</strong> Please be descriptive as possible to 
+ensure a fast answer.'); }" onclick="tooltip.hide();" 
+onmouseout="tooltip.hide();"></textarea>
+<br><br>
+<select style="width: 300px;" 
+onchange="if(this.options[this.selectedIndex].value){ 
+GetContent('right_category', '/cgi-bin/subcat_sel_right.pl?' + 
+this.options[this.selectedIndex].value, false); }" name="special_drop"><option
+ value="0" selected="selected" style="background-color: yellow;">--Speciality
+ Categories--</option><option value="2">Security and Virus</option><option
+ value="3">General Hardware</option><option value="4">CPUs/Overclocking</option><option
+ value="5">Networking</option><option value="35">iPad/iPhone/iPod</option><option
+ value="6">Digital Photo/Video</option><option value="7">Office Software</option><option
+ value="8">PC Gaming</option><option value="9">Console Gaming</option><option
+ value="10">Programming</option><option value="11">Database</option><option
+ value="12">Web Development</option><option value="13">Digital Home</option><option
+ value="32">Drivers</option><option value="33">The Lounge</option><option
+ value="0" style="background-color: yellow;">--General Categories--</option><option
+ value="1">Windows XP</option><option value="14">Windows Vista</option><option
+ value="34">Windows 7</option><option value="15">Windows 95/98</option><option
+ value="16">Windows Me</option><option value="17">Windows NT</option><option
+ value="18">Windows 2000</option><option value="19">Windows Server 2008</option><option
+ value="20">Windows Server 2003</option><option value="21">Windows 3.1</option><option
+ value="22">Linux</option><option value="23">PDAs</option><option 
+value="24">BeOS</option><option value="25">Novell Netware</option><option
+ value="26">OpenVMS</option><option value="27">Solaris</option><option 
+value="28">Disk Operating System</option><option value="29">Unix</option><option
+ value="30">Mac</option><option value="31">OS/2</option></select>
+<div id="right_category"></div>
+<br>
+<center><input value="Ask!" type="submit"></center>
+</div>
+
+</fieldset>
+</div>
+<br><br><fieldset style="width: 90%;"><legend>From the Geek Dictionary</legend><br>
+<a href="http://geekdictionary.computing.net/define/chuck-norris">Chuck 
+Norris</a> - The guy who invented every word in this dictionary.  Before
+ breakfast.<br>
+<p align="right"><a 
+href="http://geekdictionary.computing.net/define/chuck-norris">See More</a></p>
+   </fieldset>
+<br><br>
+<div style="float: left; width: 160px; margin-right: 10px;">
+<fieldset style="width: 90%;">
+<legend>Weekly Poll</legend>
+<font face="Arial, Helvetica, Verdana, sans-serif" size="2"><br>
+Do you think Microsoft Vista was a waste of time?<br><br></font><div 
+id="vote_panel">
+<form action="/cgi-bin/poll_vote.pl/86" name="poll_form" id="poll_form"><font
+ face="Arial, Helvetica, Verdana, sans-serif" size="2"><input 
+name="group1" value="285" type="radio"> Yes<br>
+<input name="group1" value="286" type="radio"> No<br>
+<input name="group1" value="287" type="radio"> Only mine<br>
+	<script type="text/javascript"><!--
+
+function get_radio_value()
+{
+for (var i=0; i < document.poll_form.group1.length; i++)
+   {
+   if (document.poll_form.group1[i].checked)
+      {
+      return document.poll_form.group1[i].value;
+      }
+   }
+}
+
+//-->
+</script>
+<br>
+</font><center><font face="Arial, Helvetica, Verdana, sans-serif" 
+size="2"><input src="empty_folder_check_files/submit_poll_vote.gif" 
+onclick="GetContent( 'vote_panel',  '/cgi-bin/poll_vote.pl/86/' + 
+get_radio_value(), false ) ; return false" value="Go!" border="0" 
+type="image"><br><font size="1"><a onclick="GetContent( 'vote_panel',  
+'/cgi-bin/poll_vote.pl/86', false ) ; return false">View Results</a></font></font></center>
+</form>
+</div><font face="Arial, Helvetica, Verdana, sans-serif" size="2"><br></font><center><font
+ face="Arial, Helvetica, Verdana, sans-serif" size="2"><font size="1">Poll
+ Finishes In <b>2</b> Days.<br><a 
+href="http://www.computing.net/answers/thelounge/discuss-microsoft-vista/655.html">Discuss
+ in The Lounge</a><br><a href="http://www.computing.net/polls">Poll 
+History</a></font></font></center>
+<font face="Arial, Helvetica, Verdana, sans-serif" size="2">	  </font>
+</fieldset>
+					<br><br>
+<fieldset style="width: 90%;">
+<legend>Recent Posts</legend><br>
+<font face="Arial, Helvetica, Verdana, sans-serif" size="1"><a 
+href="http://www.computing.net/answers/windows-xp/how-do-i-change-date-format-in-excel/185326.html">how
+ do i change date format in excel</a></font>
+<br><br><font face="Arial, Helvetica, Verdana, sans-serif" size="1"><a 
+href="http://www.computing.net/answers/gaming/directx-error-while-while-launching-call-of-d/11521.html">directx
+ error while while launching call of d</a></font>
+<br><br><font face="Arial, Helvetica, Verdana, sans-serif" size="1"><a 
+href="http://www.computing.net/answers/windows-7/batch-file-to-customize-output/2037.html">Batch
+ file to customize output</a></font>
+<br><br><font face="Arial, Helvetica, Verdana, sans-serif" size="1"><a 
+href="http://www.computing.net/answers/gaming/looking-for-an-old-pc-game/11520.html">Looking
+ for an old PC game</a></font>
+<br><br><font face="Arial, Helvetica, Verdana, sans-serif" size="1"><a 
+href="http://www.computing.net/answers/security/goes-to-wrong-web-page-when-clicked/30128.html">goes
+ to wrong web page when clicked</a></font>
+<br><br><p align="right"><font face="Arial, Helvetica, Verdana, 
+sans-serif" size="1"><a 
+href="http://www.computing.net/cgi-bin/recent.pl?programming">All 
+Awaiting Reply</a></font></p>
+</fieldset>
+<br><br><fieldset style="width: 90%;">
+<legend>Tom's News</legend><br>
+<font face="Arial, Helvetica, Verdana, sans-serif" size="1"><a 
+href="http://www.tomsguide.com/us/Smartphone-BlackBerry-Android-iPhone-holiday-inn,news-6908.html"
+ target="_blank">Holiday Inn to Test Smartphones as Room-Keys</a></font>
+<br><br><font face="Arial, Helvetica, Verdana, sans-serif" size="1"><a 
+href="http://www.tomsguide.com/us/Facebook-Privacy-Social-Network-Twitter-MySpace,news-6907.html"
+ target="_blank">Screenshots: Facebook's New Privacy Controls</a></font>
+<br><br><font face="Arial, Helvetica, Verdana, sans-serif" size="1"><a 
+href="http://www.tomsguide.com/us/DROID-Motorola-Shadow-Droid-Shadow-google-android,news-6904.html"
+ target="_blank">PICTURED: Motorola DROID Shadow Found at Gym</a></font>
+<br><br><font face="Arial, Helvetica, Verdana, sans-serif" size="1"><a 
+href="http://www.tomsguide.com/us/sony-oled-display-ultra-thin,news-6913.html"
+ target="_blank">Sony Develops Ultra-Thin Rollable OLED Display</a></font>
+<br><br><font face="Arial, Helvetica, Verdana, sans-serif" size="1"><a 
+href="http://www.tomsguide.com/us/Wii-Fit-Navy-Army,news-6911.html" 
+target="_blank">Navy May Use Wii Fit to Train Gamer Recruits</a></font>
+<br><br><p align="right"><font face="Arial, Helvetica, Verdana, 
+sans-serif" size="1"><a href="http://www.tomsguide.com/us/news/" 
+target="_blank">More Tom's Guide News</a></font></p>
+</fieldset>
+<br><br></div><div style="float: right; width: 160px;">
+<script language="JavaScript1.1"><!--
+sas_pageid='8070/62097';     
+sas_formatid=3548;
+sas_target='Programming';
+SmartAdServer(sas_pageid,sas_formatid,sas_target);
+// --></script><script src="empty_folder_check_files/Programming_002.js"></script>
+<br><br>
+<center><a href="http://www.runtime.org/" target="_blank" style=""><img 
+src="empty_folder_check_files/runtime.gif" alt="Data Recovery Software" 
+border="1"></a><br><b><a href="http://www.runtime.org/">Data Recovery</a></b></center><br><br>
+</div>
+</div>
+	<div id="footer" class="clearfix">
+		<a href="http://www.bestofmedia.com/us" target="_blank" 
+id="logoFooter">
+			<img src="empty_folder_check_files/bom-logo.gif" alt="Tom's Guide by 
+BestofMedia Group" height="54" width="65">
+		</a>
+
+		<fieldset><center><a href="http://www.computing.net/process">Process 
+Library</a> | <a href="http://www.computing.net/list/manufacturers">Manufacturer
+ List</a> | <a href="http://www.computing.net/about">About Us</a> | <a 
+href="http://www.computing.net/mediakit">Advertising Info</a> | <a 
+href="http://www.bestofmedia.com/us/feedback.html">Contact Us</a></center><br>
+
+		The information on Computing.Net is the opinions of its users. Such
+opinions may not be accurate and they are to be used at your own risk.
+Computing.Net cannot verify the validity of the statements made on this
+site. Computing.Net and Computing.Net LLC hereby disclaim all 
+responsibility
+and liability for the content of Computing.Net and its accuracy. 
+<br><a rel="nofollow" href="http://www.computing.net/disclaimer.html">PLEASE
+ READ THE FULL DISCLAIMER AND LEGAL TERMS BY
+CLICKING HERE</a>
+
+		</fieldset>
+</div>
+</div>
+<div class="KonaBody">
+</div>
+<script type="text/javascript">
+var dc_AdLinkColor = 'blue' ;
+var dc_PublisherID = 120667 ;
+</script>
+<script type="text/javascript" src="empty_folder_check_files/KonaLibInline.js">
+</script>
+<script type="text/javascript">
+<!--
+xtnv = document;        //parent.document or top.document or document         
+xtsd = "http://logc22";
+xtsite = "309009";
+xtn2 = "2";        //level 2 site 
+xtpage = "Non_Member::Programming::Create_batch_file_to_check_empty_folder";        //page name (with the use of :: to create chapters)
+xtdi = "";        
+//-->
+
+</script>
+<script type="text/javascript" src="empty_folder_check_files/xtcore.js"></script><img
+ class=" nrsvprjxhlkvxunbkugb" src="empty_folder_check_files/hit.gif" 
+height="1" width="1">
+<noscript>
+<img width="1" height="1" alt="" src="http://logc22.xiti.com/hit.xiti?s=309009&s2=2&p=Non_Member::Programming::Create_batch_file_to_check_empty_folder&di=&" >
+</noscript>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="empty_folder_check_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var firstTracker = _gat._getTracker("UA-3642902-8"); 
+firstTracker._initData();         
+firstTracker._trackPageview();
+firstTracker._setDomainName("none");
+var secondTracker = _gat._getTracker("UA-3642902-11");
+secondTracker._initData();
+secondTracker._trackPageview();
+secondTracker._setDomainName("none");
+</script>
+<script language="javascript">var tcdacmd="dt";</script>
+<script language="javascript" src="empty_folder_check_files/slf.js"></script>
+<script src="empty_folder_check_files/nodetag.js"></script>
+<!-- Start Quantcast tag -->
+<script type="text/javascript">
+_qoptions={
+qacct:"p-a8gE-fj87K0-M"
+};
+</script>
+<script type="text/javascript" src="empty_folder_check_files/quant.js"></script>
+<noscript>
+<img src="http://pixel.quantserve.com/pixel/p-a8gE-fj87K0-M.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+</noscript>
+<!-- End Quantcast tag -->
+<script>
+    document.write(unescape("%3Cscript src='" + (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js' %3E%3C/script%3E"));
+</script><script src="empty_folder_check_files/beacon.js"></script>
+
+<script>
+
+  COMSCORE.beacon({
+    c1:2,
+    c2:6257622,
+    c3:"",
+    c4:"",
+    c5:"",
+    c6:"",
+    c15:""
+  });
+
+
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/b?c1=2&c2=6257622&c3=&c4=&c5=&c6=&c15=&cv=1.3&cj=1" style="display:none" width="0" height="0" alt="" />
+</noscript>
+<div style="opacity: 0; display: none; width: auto; top: 1023px; left: 
+351px;" id="tt"><div id="tttop"></div><div id="ttcont">Use this form to 
+post a new question on the site.<br><strong>Note:</strong> Please be 
+descriptive as possible to ensure a fast answer.</div><div id="ttbot"></div></div></body></html>

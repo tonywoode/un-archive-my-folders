@@ -1,0 +1,1 @@
+document.write('<a target="_new" href="http://ad.doubleclick.net/click;h=v8/39a7/0/0/%2a/r;221262666;0-0;0;26677133;11140-205/90;34959659/34977489/1;;~sscs=%3fhttp://www.windowsitpro.com/Subscribe/tabid/836/List/1/CategoryID/7/Level/a/Default.aspx?code=WP2X0XMB"><img src="http://s0.2mdn.net/viewad/1822443/monthlypass.jpg" border=0 alt="Click here to find out more!"></a>');

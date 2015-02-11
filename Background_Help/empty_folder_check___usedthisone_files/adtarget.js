@@ -1,0 +1,1 @@
+document.write('<a target="_new" href="http://ad.doubleclick.net/click;h=v8/39a7/0/0/%2a/a;221909721;0-0;0;26677133;3454-728/90;35257371/35275189/1;;~sscs=%3fhttp://www.sqlpass.org/summit/na2010/AboutSummit/News/Cruise.aspx"><img src="http://s0.2mdn.net/viewad/1822443/PASS2010Cruise_728x90.jpg" border=0 alt="Click here to find out more!"></a>');
