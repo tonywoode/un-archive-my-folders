@@ -11,7 +11,9 @@ Now here's a common situation. If you work like me you would like to have this:
 and in this folder:
 
 THE HULK.BIN
+
 THE HULK.CUE
+
 THE HULK.WAV's/SCREENSHOTS/WHATEVER
 
 So you've carefully crafted your HULK iso and you tell 7-zip to compress it. And what does it do, but make "THE HULK" = FOLDER and within this ANOTHER "THE HULK" folder with your files within that ('folder-in-zip' syndrome). WinRAR has an easy option to sort this out, not 7-zip
@@ -57,5 +59,3 @@ How do I use this?
 ==================
 
 Same as the '7zip my folders' post - all still applies but even more so to Winmount since there's no way to do batch mou operations in it natively. And yes - you still need to include the tiny splitter prog M-Tee by Richie Lawrence for this to work at all and put it in the scripts directory.....
-
-Here's what I posted:
