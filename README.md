@@ -11,9 +11,9 @@ Now here's a common situation. If you work like me you would like to have this:
 and in this folder:
 
 THE HULK.BIN
-
+and,
 THE HULK.CUE
-
+and,
 THE HULK.WAV's/SCREENSHOTS/WHATEVER
 
 So you've carefully crafted your HULK iso and you tell 7-zip to compress it. And what does it do, but make "THE HULK" = FOLDER and within this ANOTHER "THE HULK" folder with your files within that ('folder-in-zip' syndrome). WinRAR has an easy option to sort this out, not 7-zip
